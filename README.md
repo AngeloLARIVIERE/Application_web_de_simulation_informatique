@@ -1,32 +1,30 @@
 # SAE_Semestre3_Projet
 
-
-
 ## Besoins
-l'application web propose de réaliser différentes simulations de
-calcul mathématiques, et de machine learning
 
-### Calcule mathématique 
+L'application web propose de réaliser différentes simulations de calculs mathématiques et de machine learning.
 
-- Calcule de probabiliter par linéaire regression
-- Calcule de probaliliter par Loi Normale
+### Calcul mathématique 
 
-- [ ] [Dock](/RapportProba.Rmd) 
+- Calcul de probabilité par régression linéaire
+- Calcul de probabilité par loi normale
+
+- [ ] [Doc](/RapportProba.Rmd) 
 
 ### Machine learning
 
-prediction d'émotion sur des commentaire de site web
+Prédiction d'émotions sur des commentaires de site web
 
-- [ ] [Dock](/Documentation/MachineLearning/MachineLearning.md)
+- [ ] [Doc](/Documentation/MachineLearning/MachineLearning.md)
   
 
-## Technologie utiliser
+## Technologies utilisées
 
-pour ce projet plusieur technologie on été utiliser affin d'avoir toujours la meilleur ou la plus pratique à l'endroit le plus adéquate.
+Pour ce projet, plusieurs technologies ont été utilisées afin d'obtenir la meilleure solution ou la plus pratique au bon endroit.
 
-le python a été utiliser pour les codes back de calcule de probailiter et le machine learning
-le JavaScripte lui a été utiliser pour les scripte back de l'administration des utilisateurs
-le HTML et le CSS pour le front du projet
-le PHP as été utiliser pour liée tout les code entre eux; mais il est aussi utiliser pour faire faire fonctionner les serveur
+- Python a été utilisé pour les codes backend de calcul de probabilité et de machine learning.
+- JavaScript a été utilisé pour les scripts backend de l'administration des utilisateurs.
+- HTML et CSS ont été utilisés pour le frontend du projet.
+- PHP a été utilisé pour lier tous les codes entre eux et pour faire fonctionner les serveurs.
 
-le site est heberger sur un raspberry avec un serveur PHP et  un serveur MySQL
+Le site est hébergé sur un Raspberry Pi avec un serveur PHP et un serveur MySQL.
