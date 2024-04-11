@@ -1,0 +1,31 @@
+[
+  {
+    "nom" : "Rectangles gauches",
+    "description" : "Cette méthode approxime l'aire sous la courbe de la fonction en utilisant des rectangles de même largeur et de même hauteur égale à la valeur de la fonction au point d'extrémité gauche de chaque sous-intervalle.",
+    "formules" : "∫[a,b] f(x) dx ≈ l * ∑[k=0 à n-1] f(ak)"
+  },
+  {
+    "nom" : "Rectangles médians",
+    "description" : "La méthode des rectangles médians est une méthode numérique d'approximation d'une intégrale qui consiste à découper l'intervalle d'intégration en sous-intervalles de même largeur et à évaluer la fonction sur le point milieu de chaque sous-intervalle. L'aire de chaque rectangle est ensuite calculée comme le produit de la largeur de chaque sous-intervalle et de la valeur de la fonction évaluée en son point milieu. L'intégrale est approximée par la somme de ces aires.",
+    "formules" : "∫[a,b] f(x)dx ≈ l ∑[k=1 à n] f(ak)"
+  },
+
+  {
+    "nom" : "Rectangles droites",
+    "description" : "Cette méthode approxime l'aire sous la courbe de la fonction en utilisant des rectangles de même largeur et de même hauteur égale à la valeur de la fonction au point d'extrémité droite de chaque sous-intervalle.",
+    "formules" : "∫[a,b] f(x) dx ≈ l ∑[k=1 à n] f(a+kl)"
+  },
+
+  {
+    "nom" : "Simpson",
+    "description" : "La méthode de Simpson est une méthode numérique pour approximer l'intégrale d'une fonction. Elle est plus précise que la méthode des rectangles ou la méthode des trapèzes, car elle utilise une interpolation parabolique pour estimer la forme de la courbe entre les points d'intégration.",
+    "formules" : "∫[a,b] f(x)dx ≈ (b − a / 6n)*(f(a) + f(b) + 2∑[k=1 à n-1] f(a +(k)(b − a)n)+ 4∑[k=0 à n-1] f(a +(2k + 1)(b − a)2n))"
+  },
+
+  {
+    "nom" : "Trapèze",
+    "description" : "La méthode des trapèzes est une méthode numérique pour calculer une approximation de l'intégrale d'une fonction f(x) sur un intervalle [a, b]. Elle consiste à diviser cet intervalle en n sous-intervalles égaux et à approximer l'intégrale de la fonction f(x) sur chacun de ces sous-intervalles par l'aire d'un trapèze dont les bases sont les valeurs de la fonction f(x) aux bornes de l'intervalle, et dont la hauteur est la largeur du sous-intervalle.",
+    "formules" : "∫[a,b] f(x)dx ≈ (b - a) / 2n * [f(a) + f(b) + 2 * Σ [k=1 à n-1] f(ak)]"
+  }
+
+]

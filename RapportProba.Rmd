@@ -1,0 +1,280 @@
+---
+title: "Module probabilités"
+date: "2023-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Dans ce document, on expliquera les trois méthodes d'intégration et leurs fonctions faites en python ainsi que la fonction de la loi normale de probabilités.
+
+## Méthode des rectangles 
+
+La méthode des rectangles est une méthode numérique pour calculer une approximation de l'intégrale d'une fonction sur un intervalle donné.
+
+La méthode consiste à diviser l'intervalle d'intégration en plusieurs sous-intervalles égaux, puis à calculer la surface des rectangles de base égale à la largeur de chaque sous-intervalle et de hauteur égale à la valeur de la fonction au point milieu de chaque sous-intervalle. L'aire totale sous la courbe est alors approximée par la somme des aires de ces rectangles.
+
+### Méthode de rectangles droites 
+
+Cette méthode approxime l'aire sous la courbe de la fonction en utilisant des rectangles de même largeur et de même hauteur égale à la valeur de la fonction au point d'extrémité droite de chaque sous-intervalle.
+
+Plus précisément, pour diviser l'intervalle d'intégration [a,b] en n sous-intervalles de même largeur l, on peut choisir les points d'extrémité droite de chaque sous-intervalle : a+l, a+2l, ..., a+nl.
+
+La hauteur de chaque rectangle est égale à la valeur de la fonction évaluée au point d'extrémité droite du sous-intervalle correspondant. Ainsi, pour chaque rectangle k, l'aire du rectangle est donnée par l * f(a + kl).
+
+L'approximation de l'intégrale de la fonction f(x) sur l'intervalle [a,b] par la méthode des rectangles droits est donc donnée par la somme des aires des rectangles :
+
+∫[a,b] f(x) dx ≈ Δx [f(a+l) + f(a+2l) + ... + f(a+nl)]
+
+où l = (b - a) / n est la largeur de chaque sous-intervalle.
+
+En utilisant la notation de sommation, cette formule peut être écrite comme :
+
+∫[a,b] f(x) dx ≈ l ∑[k=1 à n] f(a+kl)
+
+où la somme est prise de k=1 à n, et f(ak) désigne la valeur de la fonction f(x) au point d'extrémité droit du sous-intervalle [ak-1,ak].
+
+Cette formule permet donc d'approximer l'intégrale de la fonction f(x) sur l'intervalle [a,b] en utilisant des rectangles de même largeur et de même hauteur égale à la valeur de la fonction au point d'extrémité droit de chaque sous-intervalle.
+
+On traduit cette formule en un programme python :
+
+```{python}
+def rectangles_droites(a, b, n):
+    integrale = 0
+    largeur = (b-a)/n
+    hauteur = 0
+    for k in range(1, n+1):
+        hauteur += f(a + k*(b-a)/n)
+    aire = largeur * hauteur
+    integrale += aire
+    return integrale
+
+```
+
+Cette fonction implémente la méthode des rectangles droits pour calculer une approximation de l'intégrale d'une fonction f(x) sur un intervalle donné [a,b]. La fonction prend en entrée les paramètres a, b et n, où a et b définissent l'intervalle d'intégration et n est le nombre de sous-intervalles utilisés pour approximer l'intégrale.
+
+La fonction commence par initialiser une variable integrale à zéro, qui stockera la valeur approximative de l'intégrale à la fin de la boucle. La largeur des sous-intervalles est calculée en divisant la longueur totale de l'intervalle [a,b] par le nombre de sous-intervalles n.
+
+Ensuite, la fonction utilise une boucle for pour calculer la hauteur de chaque rectangle en additionnant les valeurs de la fonction f(x) évaluée au point d'extrémité droit de chaque sous-intervalle. La variable hauteur est initialisée à zéro avant la boucle, puis chaque terme est ajouté à la hauteur à chaque itération de la boucle.
+
+Une fois que la hauteur totale a été calculée, l'aire sous la courbe est approximée en multipliant la largeur l par la hauteur totale. Enfin, cette aire est ajoutée à la variable integrale pour obtenir une estimation de l'intégrale sur l'intervalle [a,b].
+
+La fonction retourne la valeur de l'intégrale approximée à partir de la méthode des rectangles droits.
+
+
+### Méthode de rectangles gauches 
+
+Cette méthode approxime l'aire sous la courbe de la fonction en utilisant des rectangles de même largeur et de même hauteur égale à la valeur de la fonction au point d'extrémité gauche de chaque sous-intervalle.
+
+Plus précisément, pour diviser l'intervalle d'intégration [a,b] en n sous-intervalles de même largeur l, on peut choisir les points d'extrémité gauche de chaque sous-intervalle : a, a+l, a+2l, ..., a+(n-1)l.
+
+La hauteur de chaque rectangle est égale à la valeur de la fonction évaluée au point d'extrémité gauche du sous-intervalle correspondant. Ainsi, pour chaque rectangle k, l'aire du rectangle est donnée par l * f(a + (k-1)l).
+
+L'approximation de l'intégrale de la fonction f(x) sur l'intervalle [a,b] par la méthode des rectangles gauches est donc donnée par la somme des aires des rectangles :
+
+∫[a,b] f(x) dx ≈ l [f(a) + f(a+l) + ... + f(a+(n-1)l)]
+
+où l = (b - a) / n est la largeur de chaque sous-intervalle.
+
+La somme peut être écrite de manière plus concise en utilisant la notation de sommation :
+
+∫[a,b] f(x) dx ≈ l * ∑[k=0 à n-1] f(ak)
+
+où la somme est prise de k=0 à n-1, et f(ak) désigne la valeur de la fonction f(x) au point d'extrémité gauche du sous-intervalle [ak,ak+1].
+
+Cette formule est donc équivalente à la formule de la méthode des rectangles droits présentée précédemment, mais elle utilise une somme indexée différemment pour représenter la somme des aires des rectangles.
+
+On traduit cette formule en un programme python :
+
+```{python}
+def rectangles_gauches(a,b,n):
+  integrale = 0  
+  largeur = (b-a)/n
+  hauteur = 0
+  for k in range(0, n): 
+      hauteur += f(a + k*(b-a)/n)
+  aire = largeur * hauteur
+  integrale += aire
+  return integrale
+
+```
+
+Le programme commence par initialiser une variable integrale à 0, qui servira à stocker la somme des aires des rectangles. Il calcule également la largeur l de chaque sous-intervalle comme (b-a)/n, où n est le nombre de sous-intervalles.
+
+La variable hauteur est initialisée à 0. Elle est utilisée pour stocker la somme des hauteurs de la fonction f(x) évaluée au point d'extrémité gauche de chaque sous-intervalle. Cette somme est calculée dans la boucle for qui suit, où k prend les valeurs de 0 à n-1. Pour chaque valeur de k, la fonction f(x) est évaluée au point d'extrémité gauche de l'intervalle [a + k* (b-a)/n, a + (k+1)*(b-a)/n] et le résultat est ajouté à la variable hauteur.
+
+Après avoir calculé la somme des hauteurs, le programme calcule l'aire du rectangle correspondant à la somme des hauteurs en multipliant la largeur l par la somme des hauteurs. Cette aire est stockée dans une variable aire.
+
+Enfin, la variable aire est ajoutée à la variable integrale pour mettre à jour la somme des aires des rectangles. La valeur de integrale est ensuite renvoyée en sortie de fonction.
+
+Ainsi, ce programme permet de calculer une approximation de l'intégrale de la fonction f(x) sur l'intervalle [a,b] en utilisant la méthode des rectangles gauches.
+
+### Méthode de rectangles médians 
+
+La méthode des rectangles médians est une méthode numérique d'approximation d'une intégrale qui consiste à découper l'intervalle d'intégration en sous-intervalles de même largeur et à évaluer la fonction sur le point milieu de chaque sous-intervalle. L'aire de chaque rectangle est ensuite calculée comme le produit de la largeur de chaque sous-intervalle et de la valeur de la fonction évaluée en son point milieu. L'intégrale est approximée par la somme de ces aires.
+
+Plus formellement, supposons que l'on souhaite approximer l'intégrale de la fonction f(x) sur l'intervalle [a,b]. On divise alors cet intervalle en n sous-intervalles de même largeur l = (b-a)/n, et on évalue la fonction f(x) au point milieu de chaque sous-intervalle i, soit ak = a + (k-1/2)l. La méthode des rectangles médians approxime alors l'intégrale par la somme des aires des rectangles ainsi définis :
+
+∫[a,b] f(x)dx ≈ l ∑[k=1 à n] f(ak)
+
+où ak = a + (k-1/2)l et l = (b-a)/n.
+
+Pour obtenir une approximation de l'intégrale :
+
+∫ [a,b] f(x)dx ≈ l ∑[k=0 à n-1] f((ak+(ak+1))/2)
+
+où ak = a + kl et l = (b-a)/n.
+
+On traduit cette formule en un programme python
+
+```{python}
+def rectangles_medians(a,b,n):
+  integrale = 0
+  largeur = (b-a)/n
+  hauteur = 0
+  largeur2 = (1/2) * largeur
+  for k in range(0, n):
+      hauteur += f(a + k*largeur + largeur2)
+  aire = largeur * hauteur
+  integrale += aire
+  return integrale
+```
+
+Tout d'abord, la fonction définit la variable "integrale" à 0, qui servira à stocker la somme des aires des rectangles. Elle calcule ensuite la largeur de chaque sous-intervalle l = (b - a) / n.
+
+La fonction définit également la variable "largeur2" à la moitié de l, qui est la distance entre les bornes du sous-intervalle et le point milieu de ce sous-intervalle.
+
+Ensuite, à l'aide d'une boucle "for", la fonction évalue la fonction f(x) au point milieu de chaque sous-intervalle k, c'est-à-dire à ak = ak + l/2, en utilisant la formule a + k*l + l/2 pour calculer la valeur de ak correspondant au k-ème sous-intervalle.
+
+La hauteur de chaque rectangle est définie comme la valeur de la fonction f(ak), et est stockée dans la variable "hauteur".
+
+L'aire de chaque rectangle est calculée en multipliant la largeur l par la hauteur de ce rectangle, et est stockée dans la variable "aire". Cette aire est ensuite ajoutée à la variable "integrale", qui sert à stocker la somme des aires de tous les rectangles.
+
+Enfin, la fonction retourne la valeur de "integrale", qui est l'approximation numérique de l'intégrale de la fonction f(x) sur l'intervalle [a, b] calculée par la méthode des rectangles médians.
+
+## Méthode de trapèze 
+
+La méthode des trapèzes est une méthode numérique pour calculer une approximation de l'intégrale d'une fonction f(x) sur un intervalle [a, b]. Elle consiste à diviser cet intervalle en n sous-intervalles égaux et à approximer l'intégrale de la fonction f(x) sur chacun de ces sous-intervalles par l'aire d'un trapèze dont les bases sont les valeurs de la fonction f(x) aux bornes de l'intervalle, et dont la hauteur est la largeur du sous-intervalle.
+
+La formule pour calculer l'approximation de l'intégrale par la méthode des trapèzes est la suivante :
+
+∫[a,b] f(x) dx ≈ (b - a) / 2n * [f(a) + 2f(a1) + 2f(a2) + ... + 2f(an-1) + f(b)]
+
+où f(a) et f(b) sont les valeurs de la fonction f(x) aux bornes de l'intervalle [a, b], et ak = a + k(b - a) / n est la valeur de x correspondant au point milieu de kème sous-intervalle, pour k allant de 1 à n-1.
+
+La formule finale s'écrit comme suit: 
+
+∫[a,b] f(x)dx ≈ (b - a) / 2n * [f(a) + f(b) + 2 * Σ [k=1 à n-1] f(ak)]
+
+
+La méthode des trapèzes est une méthode plus précise que les méthodes des rectangles, car elle utilise une approximation linéaire de la fonction f(x) au lieu d'une approximation constante.Et il est important de choisir un nombre de sous-intervalles suffisamment grand pour obtenir une approximation précise de l'intégrale de la fonction f(x) sur l'intervalle [a, b].
+
+
+On traduit cette formule en un programme python :
+
+```{python}
+def trapèze(a,b,n):
+  integrale = 0
+  largeur = (b-a)/n
+  largeur2 = (1/2) * largeur
+  hauteur=0
+  for k in range(1, n):
+      hauteur += 2*f(a + k*largeur)
+  aire = largeur2 * (hauteur + f(a) + f(b))
+  integrale += aire
+  return integrale
+
+```
+
+Dans cette fonction, le paramètre n est le nombre de trapèzes utilisé pour approximer l'aire. La variable integrale est initialisée à zéro, et la largeur de chaque trapèze est calculée en divisant la distance entre a et b par le nombre de trapèzes.
+
+La variable hauteur est utilisée pour stocker la somme des hauteurs des trapèzes. Cette somme est calculée en utilisant une boucle qui parcourt les points intermédiaires de la courbe (a + k*largeur) pour k variant de 1 à n-1. Le coefficient 2 est utilisé pour compter la hauteur des trapèzes qui ont été comptabilisés une fois.
+
+Enfin, l'aire totale est calculée en multipliant la somme des hauteurs par la moitié de la largeur d'un trapèze, puis en ajoutant les hauteurs des extrémités (f(a) et f(b)). L'aire totale est stockée dans la variable aire, qui est ensuite ajoutée à la variable integrale.
+
+La fonction retourne la valeur de la variable integrale, qui représente l'estimation de l'intégrale de f(x) sur l'intervalle [a, b] en utilisant la méthode des trapèzes.
+
+## Méthode de Simpson
+
+La méthode de Simpson est une méthode numérique pour approximer l'intégrale d'une fonction. Elle est plus précise que la méthode des rectangles ou la méthode des trapèzes, car elle utilise une interpolation parabolique pour estimer la forme de la courbe entre les points d'intégration.
+
+La méthode de Simpson consiste à diviser l'intervalle d'intégration en un nombre pair de sous-intervalles égaux, puis à approximer l'intégrale en utilisant la formule suivante :
+
+∫[a,b] f(x)dx ≈ h/3 [f(a) + 4f((a+b)/2) + f(b)]
+
+où h = (b - a) / 2, c'est-à-dire la largeur de chaque sous-intervalle.
+
+La formule finale de cette méthode s'écrit:
+
+∫[a,b] f(x)dx ≈ (b − a / 6n)*(f(a) + f(b) + 2∑[k=1 à n-1] f(a +(k)(b − a)n)+ 4∑[k=0 à n-1] f(a +(2k + 1)(b − a)2n))
+
+L'approximation est donnée par la somme pondérée des valeurs de la fonction aux extrémités de l'intervalle [a, b] (f(a) et f(b)), et aux points d'échantillonnage intermédiaires ak = a + k(b-a)/n, où k varie de 1 à n-1, avec une pondération de 2 pour les points pairs et de 4 pour les points impairs.
+La formule est donc basée sur l'interpolation de la fonction par une fonction quadratique (un polynôme de degré 2) sur chaque sous-intervalle.
+
+Le programme de cette formule: 
+
+```{python}
+def simpson(a,b,n):
+  integrale = 0
+  largeur = (b-a)/n
+  largeur2 = (1/2) * largeur
+  somme1 = 0
+  somme2 = 0
+  for k in range(1, n):
+      somme1 += f(a + k*largeur)
+      somme2 += f(a + (2*k+1)*largeur2)
+      hauteur = f(a) + f(b) + 2*somme1 + 4*somme2 + f(a + largeur2)
+  aire = (1/3) * largeur2 * hauteur
+  integrale += aire
+  return integrale
+```
+
+Cette fonction utilise la méthode de Simpson pour estimer l'intégrale d'une fonction f(x) entre les limites a et b.
+La fonction implemente cette formule en itérant sur les sous-intervalles et en évaluant f(x) aux points nécessaires. Elle utilise deux sommes, somme1 et somme2, pour évaluer les termes d'approximation de la formule de Simpson. La fonction renvoie la somme de toutes les aires des sous-intervalles pour donner une estimation de l'intégrale.
+
+
+
+## Loi Normale
+
+La loi normale, également connue sous le nom de loi de Gauss, est une distribution de probabilité continue. La loi normale est caractérisée par deux paramètres : la moyenne (µ) et l'écart-type (σ). 
+La densité de probabilité de la loi normale est donnée par la formule :
+
+f(x) = 1/(σ√(2π)) * exp(-(x-µ)²/(2σ²))
+
+où x est la variable aléatoire, µ est la moyenne, σ est l'écart-type, π est la constante mathématique pi, et exp est la fonction exponentielle.
+
+La fonction de densité de probabilité de la loi normale est toujours positive, et l'aire totale sous la courbe est égale à 1. La probabilité que la variable aléatoire x prenne une valeur comprise entre a et b est donnée par l'intégrale de la densité de probabilité entre a et b :
+
+P(a ≤ x ≤ b) = ∫[a,b] f(x) dx
+
+On traduit cette formule en un programme python: 
+
+```{python}
+
+def f(x):
+  M = int(input("m = "))
+  sigma = int(input("sigma = "))
+  return (1.0 / (sigma * math.sqrt(2 * math.pi))) * math.exp(-0.5 * ((x - M) / sigma) ** 2)
+
+```
+
+Ce programme définit une fonction f(x) qui représente la densité de probabilité de la loi normale. Cette fonction prend un argument x, qui représente la variable aléatoire de la loi normale.
+
+La loi normale est caractérisée par deux paramètres, la moyenne M et l'écart-type sigma. Ces paramètres sont demandés à l'utilisateur grâce à la fonction input() qui permet de lire une valeur saisie par l'utilisateur dans la console et de la stocker dans une variable.
+
+La fonction f(x) implémente la formule de la densité de probabilité de la loi normale. Elle utilise les valeurs de la moyenne M et de l'écart-type sigma pour calculer la densité de probabilité de la variable aléatoire x. La formule utilisée pour calculer la densité de probabilité de la loi normale est :
+
+(1 / (sigma * math.sqrt(2 * math.pi))) * math.exp(-0.5 * ((x - M) / sigma) ** 2)
+
+Si on veut calculer la probabilité et arrondir le résultat à 5 décimales on utilise la fonction round.
+Exemple: 
+```{python}
+
+round(trapèze(0,1,100), 5)
+
+```
+L'intervalle dans cet exemple est [0,1] et n = 100

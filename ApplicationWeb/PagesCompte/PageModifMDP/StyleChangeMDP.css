@@ -1,0 +1,28 @@
+:root{
+    --background: #fffcf5;
+    --primaire: #3a292b;
+    --secondaire: #4e4e4f;
+}
+.div1{
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+}
+.formChangeMDP{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.ch1{
+    padding: 12px 20px;
+    margin: 8px 0;
+    outline: none;
+}
+.ch1:focus{
+    border: 3px solid #555;
+}
+.valider{
+    margin-top: 20px;
+    padding: 5px 20px;
+}

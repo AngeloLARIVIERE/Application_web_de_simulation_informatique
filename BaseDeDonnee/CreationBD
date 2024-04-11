@@ -1,0 +1,49 @@
+CREATE TABLE Utilisateur (
+  id_u int NOT NULL AUTO_INCREMENT,
+  pseudo varchar(255) UNIQUE NOT NULL,
+  nom varchar(255) NOT NULL,
+  prenom varchar(255) NOT NULL,
+  mdp varchar(255) NOT NULL,
+  statut varchar(255) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (id_u, pseudo)
+);
+
+CREATE TABLE Modules (
+  id_m int NOT NULL AUTO_INCREMENT,
+  nom_m varchar(255) UNIQUE NOT NULL,
+  categorie varchar(255) NOT NULL,
+  PRIMARY KEY (id_m)
+);
+
+CREATE TABLE Historique (
+  id_h int NOT NULL AUTO_INCREMENT,
+  id_m int NOT NULL,
+  id_u int NOT NULL,
+  do_at datetime DEFAULT (now()),
+  PRIMARY KEY (id_h)
+);
+
+CREATE TABLE Statistique (
+  id_s int NOT NULL ,
+  nb_gens int NOT NULL DEFAULT 0,
+  nb_utilisation int NOT NULL DEFAULT 0,
+  FOREIGN KEY (id_s) REFERENCES Modules(id_m)
+);
+
+ALTER TABLE Historique ADD FOREIGN KEY (id_m) REFERENCES Modules (id_m);
+
+ALTER TABLE Historique ADD FOREIGN KEY (id_u) REFERENCES Utilisateur (id_u);
+
+INSERT INTO Modules VALUES (1, 'loi normale', 'probabilite');
+
+INSERT INTO Modules VALUES (2, 'Logistique régression', 'Machine learning');
+
+INSERT INTO Statistique VALUES (1, 0, 0);
+
+INSERT INTO Statistique VALUES (2, 0, 0);
+
+INSERT INTO Utilisateur VALUES (1, 'gestionnaire', 'gestionnaire', 'gestionnaire', '$2y$10$h3nc0eWBiIDVJ5g97L5IW.uh6eenopq8VwwnX2hQQr4HUGmKTY9zC', 'gestionnaire');
+
+INSERT INTO Utilisateur VALUES (2, 'Testeur', 'Testeur', 'Testeur', '$2y$10$uHZFejlooEWBjcmYV4VfnOfFpscb4BEjGyH6nIDhIs/tZdsZPI3Ka', 'Testeur');
+
+INSERT INTO Utilisateur VALUES (2, 'admin', 'admin', 'admin', '$2y$10$WvKo.J1EsPURgPTY47iwNu4gCC2G7Zv8z9VhBx1F6jjjirB0pc44W', 'admin'); 

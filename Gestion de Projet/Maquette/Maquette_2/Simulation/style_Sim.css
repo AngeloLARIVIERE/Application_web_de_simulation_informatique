@@ -1,0 +1,37 @@
+*{
+    background-color: beige;
+}
+
+body{
+    margin: 0;
+}
+
+.table1{
+    width: 100%;
+    text-align: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+
+.texte_tab{
+    width: 50%;
+}
+
+.video{
+    width: 50%;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+
+.left{
+    border-right: 1px solid black;
+}
+
+h2, .description{
+    margin-top: 40px;
+    margin-left: 40px;
+}

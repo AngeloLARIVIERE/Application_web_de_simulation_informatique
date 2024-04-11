@@ -1,0 +1,31 @@
+*{
+    background-color: #FFFCFD;
+}
+body{
+    margin: 0;
+}
+.infos_login{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 200px;
+}
+.ch1{
+    padding: 12px 20px;
+    margin: 8px 0;
+    outline: none;
+}
+.ch1:focus{
+    border: 3px solid #555;
+}
+.nv_compte{
+    margin-top: 10px;
+}
+
+.mdp_oublie{
+    margin-top: 40px;
+}
+
+.se_connecter{
+    margin-top: 20px;
+}

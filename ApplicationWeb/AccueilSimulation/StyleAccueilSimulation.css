@@ -1,0 +1,116 @@
+:root{
+    --background: #fffcf5;
+    --primaire: #3a292b;
+    --secondaire: #4e4e4f;
+}
+
+.bv{
+    color: var(--primaire);
+    text-align: center;
+    padding: 50px;
+    font-size: 32px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+hr{
+    border: none;
+    border-top: 2px dashed var(--secondaire);
+    color: var(--secondaire);
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+hr:after{
+    background: var(--background);
+    font-size:32px;
+    content: 'Simulation';
+    padding: 0 4px;
+    position: relative;
+    top: -22px;
+}
+
+.tb_sim{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    text-align: center;
+    word-wrap:break-word;
+}
+
+.sim1, .simProba{
+    width: 400px;
+    height: 150px;
+    margin-bottom: 32px;
+    margin-left: 16px;
+}
+
+.block{
+    display:block;
+    width:100%;
+    height:100%;
+    background: url("EnConstruction.jpeg") center var(--primaire);
+    background-size: 400px;
+    border-radius: 10px;
+    color: var(--background);
+    text-decoration: none;
+}
+
+.blockProba{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    color: var(--primaire);
+    text-decoration: none;
+    background: url("LoiNormale.jpg") center;
+    background-size: 370px;
+}
+
+.blockProba:hover, .block:hover{
+    font-weight: bold;
+}
+
+.blockMachineLearning{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    color: var(--primaire);
+    text-decoration: none;
+    background: url("LineaireRegression.jpeg") center;
+    background-size: 370px;
+}
+
+.blockMachineLearning:hover, .block:hover{
+    font-weight: bold;
+}
+
+/* Si l'écran est inférieur ou égal */
+@media (max-width: 1300px){
+    .sim1, simProba{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.lien{
+    color: var(--secondaire);
+    text-decoration: none;
+}
+
+.categorie{
+    margin-top: 50px;
+    text-align: right;
+    margin-right: 100px;
+}
+
+.p_cat{
+    font-size: 20px;
+}

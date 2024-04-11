@@ -1,0 +1,55 @@
+:root{
+    --background: #fffcf5;
+    --primaire: #3a292b;
+    --secondaire: #4e4e4f;
+}
+body{
+    background-color: var(--background);
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.formulaire{
+    margin: 50px 0px 50px 50px;
+}
+
+td, tr, th{
+    border: solid 1px black;
+    text-align: center;
+    padding: 20px;
+}
+
+.inputT{
+    width: 50px;
+    height: 50px;
+    background: url(../Commun/Icon/Poubelle.png) no-repeat center;
+}
+
+
+.stat{
+    padding: 0px;
+}
+
+.deconnexion{
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    width: 15%;
+    max-height:18px;
+    text-decoration: none;
+}
+
+.t_stat{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    word-wrap:break-word;
+}
+
+.t_log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

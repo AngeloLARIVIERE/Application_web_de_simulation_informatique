@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Maquette - Page de simulation</title>
+    <link href="style_Sim.css" rel="stylesheet" type="text/css">
+    <link href="../Commun/mainstyle.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="titre">
+            <h1>Bienvenue dans la simulation X (où X est le domaine)</h1>
+        </div>
+        
+        <div class="profil">
+            Profile<br />
+            <span><a href=""><img class="icon" src="../Commun/account_icon.svg" alt="account_icon" width="20" height="20"> Compte</a></span>
+            <span><a href="../Page_accueil/main.html"><img class="icon" src="../Commun/disconnect_icon.svg" alt="account_icon" width="20" height="20"> Déconnexion</a></span>
+        </div>
+        <div class="logo">
+            <a href="../Accueil_Simulation/simulation.html"><img class="image" src="../Commun/logo_site_jaune.png"
+                alt="Logo"></a>
+        </div>
+    </nav>
+    <br>
+
+    <h2>Nom de la simulation : </h2>
+    <p class="description">Description de la simulation : </p>
+    <table class="table1">
+        <tr>
+            <td class="left"><p>Formulaire pour les paramètres nécessaires à la simulation</p>
+                <form class="form1" action="simulation.html">
+                    <input class='ch1' type='text' name='X' placeholder='Valeur de X'> <br>
+                    <input class='ch1' type='int' name='Y' placeholder='Valeur de Y'> <br>
+                    <input type='submit' name='confirmer' value='Confirmer'> <br><br>
+                </form>
+            </td>
+            <hr>
+            <td class="right"><p> Affichage du resultat de la simulation</p></td>
+        </tr>
+        
+    </table>
+
+</body>
+
+</html>

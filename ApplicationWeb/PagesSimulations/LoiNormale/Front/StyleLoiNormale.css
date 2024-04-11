@@ -1,0 +1,130 @@
+body{
+    margin: 0;
+}
+
+.table1{
+    width: 100%;
+    text-align: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.right{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+    color: var(--primaire);
+    background-color: transparent;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: grey;
+}
+
+.texte_tab{
+    width: 50%;
+}
+
+.video{
+    width: 50%;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+.left{
+    border-right: 1px solid black;
+}
+
+h2, .description{
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.menu li {
+    display: inline;
+    float: left;
+    border: solid 1px var(--primaire);
+    margin-left: 20px;
+}
+
+.menu{
+    padding: 50px;
+    margin-left: 15%;
+}
+
+ul {
+    /*list-style-type: none;*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.sansfond{
+    border: none;
+    font-size: medium;
+}
+
+.sansfond:focus{
+    outline: none;
+}
+
+li a, li span {
+    display: block;
+    color: var(--primaire);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #dddad4;
+}
+
+.form1{
+    margin-top: 25px;
+    margin-left: 10%;
+    width: 70%;
+    text-align: left;
+
+    display: grid;
+    grid-template-columns: 50% 40%;
+    grid-gap: 10px;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+.form1 label {
+    text-align: right;
+}
+
+.gros{
+    font-size: x-large;
+}
+

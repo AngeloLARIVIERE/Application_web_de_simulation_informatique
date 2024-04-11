@@ -1,0 +1,80 @@
+:root{
+    --background: #fffcf5;
+    --primaire: #3a292b;
+    --secondaire: #4e4e4f;
+}
+
+.bv, .h2_video{
+    text-align: center;
+    padding: 75px;
+    font-size: 40px;
+}
+
+.description{
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 20px;
+    color: var(--primaire);
+    background-color: transparent;
+}
+
+.video_div{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.video{
+    border: solid 1px black;
+    display: block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.menu{
+    display: flex;
+    height: 50vh;
+    width: 70vw;
+    margin-left: 250px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
+}
+
+/* Si l'écran est inférieur ou égal */
+@media (max-width: 1300px){
+    .menu{
+        flex-direction: column;
+        height: auto;
+        width: 100vw;
+        text-align: left;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-left: 0px;
+    }
+    .description{
+        text-align: left;
+        width: 90vw;
+        padding-bottom: 50px;
+    }
+}
+
+/* ------- NAV BAR -------- */
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav_links{
+    color: var(--primaire);
+    text-decoration: none;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 30px;
+}

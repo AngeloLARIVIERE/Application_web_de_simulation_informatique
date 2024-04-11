@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+    <link rel="icon" href="../../Commun/Icon/FavIcon.ico" type="image/ico">
+    <link href="../StyleForm.css" rel="stylesheet" type="text/css">
+    <link href="../../Commun/StyleCommun.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <p class="logo">
+        <div class="logo">
+            <a href="../../index.html"><img class="image" src="../../Commun/Icon/LogoSite.png" alt="Logo"></a>
+        </div>
+    </p>
+    <div class='infos_login'>
+
+        <h1>Connexion</h1>
+
+        <form class="form1" action="../../BaseDeDonnees/Connexion.php" method="post">
+            <label for='pseudo' hidden>Pseudo</label>
+            <input class='ch1' type='text' id="pseudo" name='pseudo' placeholder='Pseudo' autofocus> <br>
+            <label for='mdp' hidden>Mdp</label>
+            <input class='ch1' type='password' id="mdp" name='mdp' placeholder='Mot de passe'> <br>
+            <input type='submit' name='connexion' value='Connexion'> <br><br>
+            <a class='nv_compte' href='../PageCreationCompte/CreationCompte.php'>Créer un compte</a> <br>
+            <a class='mdp_oublie' href='../../404/Page404.html'>Mot de passe oublié</a>
+        </form>
+    </div>
+</body>
+
+</html>

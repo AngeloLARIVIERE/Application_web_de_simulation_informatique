@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+}
+
+.lien{
+    color: var(--secondaire);
+    text-decoration: none;
+}
+
+table,td{
+    width: 80%;
+    border-collapse: collapse;
+    border: solid 1px black;
+    margin-left: 10%;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+h2, .description{
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+ul {
+    /*list-style-type: none;*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+form{
+    margin-top: 25px;
+    margin-left: 10%;
+    width: 70%;
+    text-align: left;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
