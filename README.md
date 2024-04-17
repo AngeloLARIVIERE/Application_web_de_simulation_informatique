@@ -28,3 +28,8 @@ Pour ce projet, plusieurs technologies ont été utilisées afin d'obtenir la me
 - PHP a été utilisé pour lier tous les codes entre eux et pour faire fonctionner les serveurs.
 
 Le site est hébergé sur un Raspberry Pi avec un serveur PHP et un serveur MySQL.
+
+_________________________________________
+_________________________________________
+
+Ce projet a été réalisé pendant ma deuxième année de BUT en collaboration avec : Khaoula HAJBI, Quentin ROCHER, Erwan BARBIER.
